@@ -21,13 +21,13 @@
 ## Прочие выполненные работы
 
 * Домашние работы по машинному обучению в рамках дисциплины [&laquo;Введение анализ данных&raquo;](https://github.com/esokolov/ml-minor-hse). Средний балл за дз 10/10:
- 1. [ДЗ1](https://github.com/hardesttype/task_examples/blob/main/iad/HW1/Razuvaev_N_HW1.ipynb) (numpy, pandas, matplotlib)
- 2. [ДЗ2](https://github.com/hardesttype/task_examples/blob/main/iad/HW2/Razuvaev_N_HW2.ipynb) (kNN своими руками, линейная регрессия своими руками для функции потерь Хьюбера, обработка данных и применение линейных алгоритмов)
- 3. [ДЗ3.1](https://github.com/hardesttype/task_examples/blob/main/iad/HW3/Razuvaev_N_HW3_p1.ipynb), [ДЗ3.2](https://github.com/hardesttype/task_examples/blob/main/iad/HW3/Razuvaev_N_HW3_p2.ipynb) (NLP, предсказание категории по тексту объявления, BOW, TF-IDF, LogRegression, Linear SVC, FastText)
- 4. [ДЗ4](https://github.com/hardesttype/task_examples/blob/main/iad/HW4/Razuvaev_N_HW4.ipynb) (Ансамблевые методы, random forest, градиентный бустинг)
- 5. [ДЗ5](https://github.com/hardesttype/task_examples/blob/main/iad/HW5/HW5_Razuvaev_N.ipynb) (Визуализация, классификация изображений листьев методами МО)
+  1. [ДЗ1](https://github.com/hardesttype/task_examples/blob/main/iad/HW1/Razuvaev_N_HW1.ipynb) (numpy, pandas, matplotlib)
+  2. [ДЗ2](https://github.com/hardesttype/task_examples/blob/main/iad/HW2/Razuvaev_N_HW2.ipynb) (kNN своими руками, линейная регрессия своими руками для функции потерь Хьюбера, обработка данных и применение линейных алгоритмов)
+  3. [ДЗ3.1](https://github.com/hardesttype/task_examples/blob/main/iad/HW3/Razuvaev_N_HW3_p1.ipynb), [ДЗ3.2](https://github.com/hardesttype/task_examples/blob/main/iad/HW3/Razuvaev_N_HW3_p2.ipynb) (NLP, предсказание категории по тексту объявления, BOW, TF-IDF, LogRegression, Linear SVC, FastText)
+  4. [ДЗ4](https://github.com/hardesttype/task_examples/blob/main/iad/HW4/Razuvaev_N_HW4.ipynb) (Ансамблевые методы, random forest, градиентный бустинг)
+  5. [ДЗ5](https://github.com/hardesttype/task_examples/blob/main/iad/HW5/HW5_Razuvaev_N.ipynb) (Визуализация, классификация изображений листьев методами МО)
  
- * Домашние работы по глубинному обучению в рамках дисциплины [&laquo;Современные методы машинного обучения&raquo;](https://github.com/hse-ds/iad-deep-learning). Средний балл за дз 10/10: 
+* Домашние работы по глубинному обучению в рамках дисциплины [&laquo;Современные методы машинного обучения&raquo;](https://github.com/hse-ds/iad-deep-learning). Средний балл за дз 10/10: 
   1. [ДЗ1](https://github.com/hardesttype/task_examples/blob/main/smmo/HW1/Razuvaev_N_HW1.ipynb) (Основы pytorch, Adam своими руками, CNN)
   2. [ДЗ2](https://github.com/hardesttype/task_examples/blob/main/smmo/HW2/Razuvaev_N_HW2.ipynb) (CNN для классификации изображений, CNN для детекции, resnet, Faster-R-CNN)
   3. [ДЗ3](https://github.com/hardesttype/task_examples/blob/main/smmo/HW3/Razuvaev_N_HW3.ipynb), [ДЗ3БОНУС](https://github.com/hardesttype/task_examples/blob/main/smmo/HW3/HW3_bonus.ipynb) (NLP, transformers, roBERTa, skip-gram)
