@@ -32,4 +32,4 @@
   2. [ДЗ2](https://github.com/hardesttype/task_examples/blob/main/smmo/HW2/Razuvaev_N_HW2.ipynb) (CNN для классификации изображений, CNN для детекции, resnet, Faster-R-CNN)
   3. [ДЗ3](https://github.com/hardesttype/task_examples/blob/main/smmo/HW3/Razuvaev_N_HW3.ipynb), [ДЗ3БОНУС](https://github.com/hardesttype/task_examples/blob/main/smmo/HW3/HW3_bonus.ipynb) (NLP, transformers, roBERTa, skip-gram)
   
-* Курсовая работа за 2 курс по методу взвешенной суммы и TOPSIS с кодом на python: [pdf](https://www.overleaf.com/project/5f67bcdb8387d30001833757)
+* Курсовая работа за 2 курс по методу взвешенной суммы и TOPSIS с кодом на python: [pdf](https://github.com/hardesttype/task_examples/blob/main/cource%20work%202019-2020/cource%20work.pdf), [взвешенная сумма](), [topsis](), [интервальный topsis]()
