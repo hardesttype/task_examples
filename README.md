@@ -20,7 +20,7 @@
   
 ## Прочие выполненные работы
 
-* Домашние работы по машинному обучению в рамках дисциплины [&laquo;Введение в анализ данных&raquo;](https://github.com/esokolov/ml-minor-hse). Средний балл за дз 10/10:
+* Домашние работы по машинному обучению в рамках дисциплины [&laquo;Введение в анализ данных&raquo;](https://github.com/esokolov/ml-minor-hse). Средний балл за [дз](https://github.com/nadiinchi/iad2020) 10/10:
   1. [ДЗ1](https://github.com/hardesttype/task_examples/blob/main/iad/HW1/Razuvaev_N_HW1.ipynb) (numpy, pandas, matplotlib)
   2. [ДЗ2](https://github.com/hardesttype/task_examples/blob/main/iad/HW2/Razuvaev_N_HW2.ipynb) (kNN своими руками, линейная регрессия своими руками для функции потерь Хьюбера, обработка данных и применение линейных алгоритмов)
   3. [ДЗ3.1](https://github.com/hardesttype/task_examples/blob/main/iad/HW3/Razuvaev_N_HW3_p1.ipynb), [ДЗ3.2](https://github.com/hardesttype/task_examples/blob/main/iad/HW3/Razuvaev_N_HW3_p2.ipynb) (NLP, предсказание категории по тексту объявления, BOW, TF-IDF, LogRegression, Linear SVC, FastText)
