@@ -1,7 +1,7 @@
 # task_examples
 Примеры моего кода, а также выполненных задач
 
-## Указанные в анкете работы
+## Некоторые работы
 
 * Домашняя работа по NLP:
   * Основная часть: [code](https://github.com/hardesttype/task_examples/blob/main/smmo/HW3/Razuvaev_N_HW3.ipynb)
