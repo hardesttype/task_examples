@@ -26,7 +26,10 @@
 
 ## Олимпиады 
   
-* Решение задач олимпиады &laquo;Я &mdash; профессионал&raquo; по машинному обучению 2020-2021: [code](https://github.com/hardesttype/task_examples/blob/main/yaprofi/yaprofi.ipynb)
+* Решение задач олимпиады &laquo;Я &mdash; профессионал&raquo; по машинному обучению 2020-2021: 
+  * Отборочный этап: [code](https://github.com/hardesttype/task_examples/blob/main/yaprofi/yaprofi.ipynb)
+  * Полуфинал: [code](https://github.com/hardesttype/task_examples/blob/cd28d31134e28a59481218272fdbcbfca06a7fb0/yaprofi/Semifinal%20yaprofi.ipynb) 
+    * Не увидел knn -> проиграл
 
 ## Прочее
 
