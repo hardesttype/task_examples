@@ -17,6 +17,7 @@
 
 * Курсовая работа &laquo;Прогнозирование экономических и финансовых показателей на основе текстов новостей&raquo;:
   * Парсер новостей: [code](https://github.com/hardesttype/task_examples/blob/main/course%20work/news_parser.ipynb)
+  * Прогнозирование с помощью новостей: [code](https://github.com/hardesttype/task_examples/blob/main/course%20work/Forecasting%20with%20news.ipynb)
   
 ## Прочие выполненные работы
 
