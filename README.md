@@ -6,6 +6,7 @@
 * Курсовая работа &laquo;Прогнозирование экономических и финансовых показателей на основе текстов новостей&raquo;:
   * Парсер новостей: [code](https://github.com/hardesttype/task_examples/blob/main/course%20work/news_parser.ipynb)
   * Прогнозирование с помощью новостей: [code](https://github.com/hardesttype/task_examples/blob/main/course%20work/Forecasting%20with%20news.ipynb)
+  * PDF: [url](https://github.com/hardesttype/task_examples/blob/1cf4b2cc602359c79a4ed70ad0962fc1fde17fc9/course_work_2020-2021/course_work_2021.pdf)
 
 * Курсовая работа за 2 курс по методу взвешенной суммы и TOPSIS с кодом на python: [pdf](https://github.com/hardesttype/task_examples/blob/main/cource%20work%202019-2020/cource%20work.pdf), [взвешенная сумма](https://github.com/hardesttype/task_examples/blob/main/cource%20work%202019-2020/weighted_sum.py), [topsis](https://github.com/hardesttype/task_examples/blob/main/cource%20work%202019-2020/TOPSIS.py), [интервальный topsis](https://github.com/hardesttype/task_examples/blob/main/cource%20work%202019-2020/intervalTOPSIS.py)
   
