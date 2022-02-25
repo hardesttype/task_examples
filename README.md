@@ -7,6 +7,7 @@
   * Парсер новостей: [code](https://github.com/hardesttype/task_examples/blob/121c722b5ae1d88bda396ecb2360c2613cfe062d/course_work_2020-2021/news_parser.ipynb)
   * Прогнозирование с помощью новостей: [code](https://github.com/hardesttype/task_examples/blob/121c722b5ae1d88bda396ecb2360c2613cfe062d/course_work_2020-2021/Forecasting%20with%20news.ipynb)
   * PDF: [url](https://github.com/hardesttype/task_examples/blob/121c722b5ae1d88bda396ecb2360c2613cfe062d/course_work_2020-2021/course_work_2021.pdf)
+  * 3 место НИРС: [url](https://github.com/hardesttype/task_examples/blob/a6c38cd5dc664cdeae634bba5c31bf3378a5028b/course_work_2020-2021/NSRazuvaev_diploma.pdf)
 
 * Курсовая работа за 2 курс по методу взвешенной суммы и TOPSIS с кодом на python: [pdf](https://github.com/hardesttype/task_examples/blob/main/cource%20work%202019-2020/cource%20work.pdf), [взвешенная сумма](https://github.com/hardesttype/task_examples/blob/main/cource%20work%202019-2020/weighted_sum.py), [topsis](https://github.com/hardesttype/task_examples/blob/main/cource%20work%202019-2020/TOPSIS.py), [интервальный topsis](https://github.com/hardesttype/task_examples/blob/main/cource%20work%202019-2020/intervalTOPSIS.py)
   
