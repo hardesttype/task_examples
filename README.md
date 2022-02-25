@@ -26,6 +26,12 @@
   3. [ДЗ3](https://github.com/hardesttype/task_examples/blob/main/smmo/HW3/Razuvaev_N_HW3.ipynb), [ДЗ3БОНУС](https://github.com/hardesttype/task_examples/blob/main/smmo/HW3/HW3_bonus.ipynb) (NLP, transformers, roBERTa, skip-gram)
     * [Ссылка на соревнование](https://www.kaggle.com/c/hseds-texts-2020)
 
+* Домашние работы в рамках дисциплины [&laquo;Прикладные задачи анализа данных&raquo;](https://github.com/hse-ds/iad-applied-ds). Средний балл за дз 10/10: 
+  1. [ДЗ1](https://github.com/hardesttype/task_examples/blob/d6548d67dc21aacd64f585fdacbec25157e0d043/pzad/HW4_Razuvaev_N.ipynb) (Conditional WGAN, VAE)
+  2. [ДЗ2](https://github.com/hardesttype/task_examples/blob/d6548d67dc21aacd64f585fdacbec25157e0d043/pzad/HW2_Razuvaev_N.ipynb) (Deep learning для обработки звука: MLP, CNN, FFT)
+  3. [ДЗ3](https://github.com/hardesttype/task_examples/blob/d6548d67dc21aacd64f585fdacbec25157e0d043/pzad/HW3_Razuvaev_N.ipynb) (Recommender systems (LightFM))
+  4. [ДЗ4](https://github.com/hardesttype/task_examples/blob/d6548d67dc21aacd64f585fdacbec25157e0d043/pzad/HW4_Razuvaev_N.ipynb) (Прогнозирование временных рядов (prophet, STAN))
+
 ## Олимпиады 
   
 * Решение задач олимпиады &laquo;Я &mdash; профессионал&raquo; по машинному обучению 2020-2021: 
