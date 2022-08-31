@@ -1,5 +1,7 @@
 # КР «Прогнозирование экономических и финансовых показателей на основе текстовновостей»
 
+* [Диплом НИРС](https://github.com/hardesttype/task_examples/blob/609b1135ad67b078baf44ccd48e341f178948552/course_work_2020-2021/NSRazuvaev_diploma.pdf)
+
 * [Парсер новостей](https://github.com/hardesttype/task_examples/blob/d65bb1576f63bae36b3f4410ea16d4aaa4f6d01a/course%20work/news_parser.ipynb)
 
 * [Прогнозирование с помощью новостных индексов](https://github.com/hardesttype/task_examples/blob/d65bb1576f63bae36b3f4410ea16d4aaa4f6d01a/course%20work/Forecasting%20with%20news.ipynb)
