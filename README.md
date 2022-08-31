@@ -1,6 +1,12 @@
 # task_examples
 Примеры моего кода, а также выполненных задач
 
+## Выпускная квалификационная работа
+
+* &laquo;Влияние информации о пандемии коронавируса на финансовые рынки&raquo;:
+  * Презентация: [pdf](https://github.com/hardesttype/task_examples/blob/4bbd5993bff721dafe1ffb63ea0e48383610ecc7/diploma_2021-2022/Presentation.pdf)
+  * Черновик для публикации: [pdf](https://github.com/hardesttype/task_examples/blob/4bbd5993bff721dafe1ffb63ea0e48383610ecc7/diploma_2021-2022/covid_info2022.pdf)
+
 ## Курсовые работы 
 
 * Курсовая работа &laquo;Прогнозирование экономических и финансовых показателей на основе текстов новостей&raquo;:
