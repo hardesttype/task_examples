@@ -19,9 +19,9 @@
 ## Курсы
 
 * Домашние работы в рамках дисциплины [&laquo;Машинное обучение для больших данных&raquo;](https://github.com/ADKosm/lsml-2022-public). Балл за курс 7/10: 
-  1. [МИНИ ДЗ1](https://github.com/hardesttype/task_examples/blob/e3880b0e10273e36c18df6d0d7d7a78469c6c9db/lsml/MHW1_%D0%9D%D0%B8%D0%BA%D0%B8%D1%82%D0%B0_%D0%A0%D0%B0%D0%B7%D1%83%D0%B2%D0%B0%D0%B5%D0%B2.ipynb) (Bash)
-  2. [МИНИ ДЗ2](https://github.com/hardesttype/task_examples/blob/e3880b0e10273e36c18df6d0d7d7a78469c6c9db/lsml/MHW2_%D0%9D%D0%B8%D0%BA%D0%B8%D1%82%D0%B0_%D0%A0%D0%B0%D0%B7%D1%83%D0%B2%D0%B0%D0%B5%D0%B2.ipynb) (MapReduce и Spark)
-  3. [МИНИ ДЗ3](https://github.com/hardesttype/task_examples/blob/e3880b0e10273e36c18df6d0d7d7a78469c6c9db/lsml/MHW3_%D0%9D%D0%B8%D0%BA%D0%B8%D1%82%D0%B0_%D0%A0%D0%B0%D0%B7%D1%83%D0%B2%D0%B0%D0%B5%D0%B2.ipynb) (Vowpal Wabbit)
+  1. [Мини ДЗ1](https://github.com/hardesttype/task_examples/blob/e3880b0e10273e36c18df6d0d7d7a78469c6c9db/lsml/MHW1_%D0%9D%D0%B8%D0%BA%D0%B8%D1%82%D0%B0_%D0%A0%D0%B0%D0%B7%D1%83%D0%B2%D0%B0%D0%B5%D0%B2.ipynb) (Bash)
+  2. [Мини ДЗ2](https://github.com/hardesttype/task_examples/blob/e3880b0e10273e36c18df6d0d7d7a78469c6c9db/lsml/MHW2_%D0%9D%D0%B8%D0%BA%D0%B8%D1%82%D0%B0_%D0%A0%D0%B0%D0%B7%D1%83%D0%B2%D0%B0%D0%B5%D0%B2.ipynb) (MapReduce и Spark)
+  3. [Мини ДЗ3](https://github.com/hardesttype/task_examples/blob/e3880b0e10273e36c18df6d0d7d7a78469c6c9db/lsml/MHW3_%D0%9D%D0%B8%D0%BA%D0%B8%D1%82%D0%B0_%D0%A0%D0%B0%D0%B7%D1%83%D0%B2%D0%B0%D0%B5%D0%B2.ipynb) (Vowpal Wabbit)
   4. [Большое ДЗ](https://github.com/hardesttype/task_examples/blob/e3880b0e10273e36c18df6d0d7d7a78469c6c9db/lsml/Main_Homework_%D0%9D%D0%B8%D0%BA%D0%B8%D1%82%D0%B0_%D0%A0%D0%B0%D0%B7%D1%83%D0%B2%D0%B0%D0%B5%D0%B2.ipynb) (Соревнование [Outbrain Click Prediction](https://www.kaggle.com/c/outbrain-click-prediction))
 
 * Домашние работы в рамках дисциплины [&laquo;Прикладные задачи анализа данных&raquo;](https://github.com/hse-ds/iad-applied-ds). Средний балл за дз 10/10: 
