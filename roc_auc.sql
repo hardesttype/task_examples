@@ -204,5 +204,58 @@ END;
 END;
 /
 
+-----------------------------------------------------------------
+-- VERSION 1 (CLAUDE)
+CREATE OR REPLACE TYPE score_label_pair AS OBJECT (
+  score NUMBER,
+  label NUMBER
+);
+/
+
+CREATE OR REPLACE TYPE score_label_tab IS TABLE OF score_label_pair;
+/
+
+CREATE OR REPLACE FUNCTION roc_auc(scores_labels score_label_tab) RETURN NUMBER IS
+  total_pos NUMBER := 0;
+  total_neg NUMBER := 0;
+  sum_ranks NUMBER := 0;
+  current_rank NUMBER := 0;
+  current_score NUMBER := -1;
+  tie_count NUMBER := 0;
+BEGIN
+  -- Count total positives and negatives
+  FOR i IN 1..scores_labels.COUNT LOOP
+    IF scores_labels(i).label = 1 THEN
+      total_pos := total_pos + 1;
+    ELSE
+      total_neg := total_neg + 1;
+    END IF;
+  END LOOP;
+
+  -- Sort scores in descending order
+  scores_labels := score_label_tab(
+    SELECT * FROM TABLE(scores_labels)
+    ORDER BY score DESC
+  );
+
+  -- Compute sum of ranks for positive instances
+  FOR i IN 1..scores_labels.COUNT LOOP
+    IF scores_labels(i).score != current_score THEN
+      current_rank := current_rank + tie_count;
+      tie_count := 1;
+      current_score := scores_labels(i).score;
+    ELSE
+      tie_count := tie_count + 1;
+    END IF;
+
+    IF scores_labels(i).label = 1 THEN
+      sum_ranks := sum_ranks + current_rank;
+    END IF;
+  END LOOP;
+
+  -- Compute AUC
+  RETURN (sum_ranks - (total_pos * (total_pos + 1) / 2)) / (total_pos * total_neg);
+END;
+/
 CREATE FUNCTION RocAuc (value NUMBER, label NUMBER) RETURN NUMBER 
 PARALLEL_ENABLE AGGREGATE USING RocAucImpl;
