@@ -152,3 +152,57 @@ BEGIN
 
   DBMS_OUTPUT.PUT_LINE('ROC-AUC Value: ' || roc_auc_value);
 END;
+
+-----------------------------------------------------------------
+-- VERSION 3
+CREATE OR REPLACE TYPE RocAucImpl AS OBJECT (
+  positive_rank_sum NUMBER,
+  positive_count    NUMBER,
+  negative_count    NUMBER,
+
+  STATIC FUNCTION ODCIAggregateInitialize(sctx IN OUT RocAucImpl) RETURN NUMBER,
+  MEMBER FUNCTION ODCIAggregateIterate(self IN OUT RocAucImpl, value IN NUMBER, label IN NUMBER) RETURN NUMBER,
+  MEMBER FUNCTION ODCIAggregateTerminate(self IN RocAucImpl, returnValue OUT NUMBER, flags IN NUMBER) RETURN NUMBER,
+  MEMBER FUNCTION ODCIAggregateMerge(self IN OUT RocAucImpl, ctx2 IN RocAucImpl) RETURN NUMBER
+);
+/
+
+CREATE OR REPLACE TYPE BODY RocAucImpl IS
+
+STATIC FUNCTION ODCIAggregateInitialize(sctx IN OUT RocAucImpl) RETURN NUMBER IS
+BEGIN
+  sctx := RocAucImpl(0, 0, 0);
+  RETURN ODCIConst.Success;
+END;
+
+MEMBER FUNCTION ODCIAggregateIterate(self IN OUT RocAucImpl, value IN NUMBER, label IN NUMBER) RETURN NUMBER IS
+BEGIN
+  IF label = 1 THEN
+    self.positive_rank_sum := self.positive_rank_sum + value;
+    self.positive_count := self.positive_count + 1;
+  ELSE
+    self.negative_count := self.negative_count + 1;
+  END IF;
+  RETURN ODCIConst.Success;
+END;
+
+MEMBER FUNCTION ODCIAggregateTerminate(self IN RocAucImpl, returnValue OUT NUMBER, flags IN NUMBER) RETURN NUMBER IS
+BEGIN
+  -- Formula for AUC: (Sum of ranks for positive samples - (positive_count * (positive_count + 1)/2)) / (positive_count * negative_count)
+  returnValue := (self.positive_rank_sum - (self.positive_count * (self.positive_count + 1) / 2)) / (self.positive_count * self.negative_count);
+  RETURN ODCIConst.Success;
+END;
+
+MEMBER FUNCTION ODCIAggregateMerge(self IN OUT RocAucImpl, ctx2 IN RocAucImpl) RETURN NUMBER IS
+BEGIN
+  self.positive_rank_sum := self.positive_rank_sum + ctx2.positive_rank_sum;
+  self.positive_count := self.positive_count + ctx2.positive_count;
+  self.negative_count := self.negative_count + ctx2.negative_count;
+  RETURN ODCIConst.Success;
+END;
+
+END;
+/
+
+CREATE FUNCTION RocAuc (value NUMBER, label NUMBER) RETURN NUMBER 
+PARALLEL_ENABLE AGGREGATE USING RocAucImpl;
