@@ -143,3 +143,12 @@ CREATE OR REPLACE FUNCTION ComputeRocAuc (
 ) RETURN NUMBER
 AGGREGATE USING RocAucType;
 /
+
+DECLARE
+  roc_auc_value NUMBER;
+BEGIN
+  SELECT ComputeRocAuc(predicted_score, actual_class) INTO roc_auc_value
+  FROM model_predictions;
+
+  DBMS_OUTPUT.PUT_LINE('ROC-AUC Value: ' || roc_auc_value);
+END;
