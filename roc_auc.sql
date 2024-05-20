@@ -1,3 +1,5 @@
+-----------------------------------------------------------------
+-- VERSION 1
 -- Create a new type to hold the intermediate results
 CREATE OR REPLACE TYPE RocAucType AS OBJECT (
     pos_samples NUMBER,
@@ -74,4 +76,70 @@ END;
 CREATE OR REPLACE FUNCTION ComputeRocAuc (input NUMBER, class NUMBER)
 RETURN NUMBER
 PARALLEL_ENABLE AGGREGATE USING RocAucType;
+/
+
+-----------------------------------------------------------------
+-- VERSION 2
+-- Define the type for the custom aggregate function
+CREATE OR REPLACE TYPE RocAucType AS OBJECT (
+  positive_count NUMBER,
+  negative_count NUMBER,
+  scores SYS.ODCIVARCHAR2LIST,
+  classes SYS.ODCINUMBERLIST,
+  STATIC FUNCTION ODCIAggregateInitialize(sctx IN OUT RocAucType) RETURN NUMBER,
+  MEMBER FUNCTION ODCIAggregateIterate(self IN OUT RocAucType, score IN VARCHAR2, class IN NUMBER) RETURN NUMBER,
+  MEMBER FUNCTION ODCIAggregateMerge(self IN OUT RocAucType, ctx2 IN RocAucType) RETURN NUMBER,
+  MEMBER FUNCTION ODCIAggregateTerminate(self IN RocAucType, returnValue OUT NUMBER, flags IN NUMBER) RETURN NUMBER
+);
+/
+
+-- Define the body for the type
+CREATE OR REPLACE TYPE BODY RocAucType IS
+  STATIC FUNCTION ODCIAggregateInitialize(sctx IN OUT RocAucType) RETURN NUMBER IS
+  BEGIN
+    sctx := RocAucType(0, 0, SYS.ODCIVARCHAR2LIST(), SYS.ODCINUMBERLIST());
+    RETURN ODCIConst.Success;
+  END;
+
+  MEMBER FUNCTION ODCIAggregateIterate(self IN OUT RocAucType, score IN VARCHAR2, class IN NUMBER) RETURN NUMBER IS
+  BEGIN
+    IF class = 1 THEN
+      self.positive_count := self.positive_count + 1;
+    ELSE
+      self.negative_count := self.negative_count + 1;
+    END IF;
+    self.scores.EXTEND;
+    self.scores(self.scores.LAST) := score;
+    self.classes.EXTEND;
+    self.classes(self.classes.LAST) := class;
+    RETURN ODCIConst.Success;
+  END;
+
+  MEMBER FUNCTION ODCIAggregateMerge(self IN OUT RocAucType, ctx2 IN RocAucType) RETURN NUMBER IS
+  BEGIN
+    self.positive_count := self.positive_count + ctx2.positive_count;
+    self.negative_count := self.negative_count + ctx2.negative_count;
+    self.scores := self.scores MULTISET UNION ALL ctx2.scores;
+    self.classes := self.classes MULTISET UNION ALL ctx2.classes;
+    RETURN ODCIConst.Success;
+  END;
+
+  MEMBER FUNCTION ODCIAggregateTerminate(self IN RocAucType, returnValue OUT NUMBER, flags IN NUMBER) RETURN NUMBER IS
+    -- The actual logic to compute ROC-AUC will go here.
+    -- This is a placeholder to illustrate the method signature.
+    -- The computation of the ROC-AUC is non-trivial and would
+    -- require implementation of the algorithm in PL/SQL.
+    BEGIN
+      returnValue := 0; -- Placeholder result
+      RETURN ODCIConst.Success;
+    END;
+END;
+/
+
+-- Create the custom aggregate function
+CREATE OR REPLACE FUNCTION ComputeRocAuc (
+  score IN VARCHAR2,
+  class IN NUMBER
+) RETURN NUMBER
+AGGREGATE USING RocAucType;
 /
