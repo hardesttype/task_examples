@@ -259,3 +259,78 @@ END;
 /
 CREATE FUNCTION RocAuc (value NUMBER, label NUMBER) RETURN NUMBER 
 PARALLEL_ENABLE AGGREGATE USING RocAucImpl;
+
+-----------------------------------------------------------------
+-- VERSION 2 (CLAUDE)
+CREATE OR REPLACE TYPE ROC_AUC_Aggregate AS OBJECT (
+  -- Attributes to store aggregation context
+  sum_pos NUMBER,
+  sum_neg NUMBER,
+  total_pos NUMBER, 
+  total_neg NUMBER,
+  
+  -- ODCIAggregate interface methods  
+  STATIC FUNCTION ODCIAggregateInitialize(sctx IN OUT ROC_AUC_Aggregate) RETURN NUMBER,
+  
+  MEMBER FUNCTION ODCIAggregateIterate(self IN OUT ROC_AUC_Aggregate, 
+                                       value NUMBER, label NUMBER) RETURN NUMBER,
+                                       
+  MEMBER FUNCTION ODCIAggregateMerge(self IN OUT ROC_AUC_Aggregate,
+                                     ctx2 IN ROC_AUC_Aggregate) RETURN NUMBER,
+                                      
+  MEMBER FUNCTION ODCIAggregateTerminate(self IN ROC_AUC_Aggregate,
+                                         returnValue OUT NUMBER, 
+                                         flags IN NUMBER) RETURN NUMBER
+);
+/
+
+CREATE OR REPLACE TYPE BODY ROC_AUC_Aggregate IS
+
+  STATIC FUNCTION ODCIAggregateInitialize(sctx IN OUT ROC_AUC_Aggregate) 
+  RETURN NUMBER IS
+  BEGIN
+    sctx := ROC_AUC_Aggregate(0, 0, 0, 0);
+    RETURN ODCIConst.Success;
+  END;
+
+  MEMBER FUNCTION ODCIAggregateIterate(self IN OUT ROC_AUC_Aggregate, 
+                                       value NUMBER, label NUMBER) 
+  RETURN NUMBER IS
+  BEGIN
+    IF label = 1 THEN
+      self.sum_pos := self.sum_pos + value;
+      self.total_pos := self.total_pos + 1;
+    ELSE 
+      self.sum_neg := self.sum_neg + value;
+      self.total_neg := self.total_neg + 1;
+    END IF;
+    RETURN ODCIConst.Success;
+  END;
+  
+  MEMBER FUNCTION ODCIAggregateMerge(self IN OUT ROC_AUC_Aggregate,
+                                     ctx2 IN ROC_AUC_Aggregate) 
+  RETURN NUMBER IS
+  BEGIN
+    self.sum_pos := self.sum_pos + ctx2.sum_pos;
+    self.sum_neg := self.sum_neg + ctx2.sum_neg;
+    self.total_pos := self.total_pos + ctx2.total_pos; 
+    self.total_neg := self.total_neg + ctx2.total_neg;
+    RETURN ODCIConst.Success;
+  END;
+
+  MEMBER FUNCTION ODCIAggregateTerminate(self IN ROC_AUC_Aggregate,
+                                         returnValue OUT NUMBER,
+                                         flags IN NUMBER) 
+  RETURN NUMBER IS
+    auc NUMBER;
+  BEGIN
+    auc := (self.sum_pos/self.total_pos - (self.total_pos+1)/2) / self.total_neg;
+    returnValue := auc;
+    RETURN ODCIConst.Success;
+  END;
+
+END;
+/
+
+CREATE OR REPLACE FUNCTION ROC_AUC(score NUMBER, label NUMBER) RETURN NUMBER
+PARALLEL_ENABLE AGGREGATE USING ROC_AUC_Aggregate;
