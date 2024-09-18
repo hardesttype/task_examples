@@ -5,13 +5,13 @@
 
 Ниже то, как должна выглядеть фича:
 feature = {
-    'name': 'max_CREDITSUM_MTSB_AND_POTREB_v0',
-    'source': 'cr_loan',
-    'id_column': 'REQUESTID',
-    'column': 'CREDITSUM',
-    'dtype': float,
-    'aggregation': 'max',
-    'filter_expression': [
+    'name': 'max_CREDITSUM_MTSB_AND_POTREB_v0', # название признака
+    'source': 'cr_loan', # источник (название таблицы)
+    'id_column': 'REQUESTID', # id, по которому считаем агрегат
+    'column': 'CREDITSUM', # исходное название фичи
+    'dtype': float, # тип переменной
+    'aggregation': 'max', # агрегация
+    'filter_expression': [ # описание фильтров
         {
             'name': 'MTSB',
             'column': 'IS_OWN',
@@ -26,7 +26,7 @@ feature = {
         },
     ],
     'filter_conjunction': 'MTSB & POTREB', # А может быть и MTSB | POTREB, например
-    'filter_name': 'MTSB_AND_POTREB',
+    'filter_name': 'MTSB_AND_POTREB', 
     'description': 'Максимальная сумма кредита по потребительским кредитам МТС-Банка',
     'version': 0,
     
