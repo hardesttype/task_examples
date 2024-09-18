@@ -1,0 +1,58 @@
+# Этап 1 (FEATURE CONFIG): Созданиие конфига фичей
+feature = {
+    'name': 'max_CREDITSUM_MTSB_AND_POTREB_v0',
+    'source': 'cr_loan',
+    'id_column': 'REQUESTID',
+    'column': 'CREDITSUM',
+    'dtype': float,
+    'aggregation': 'max',
+    'filter_expression': [
+        {
+            'name': 'MTSB',
+            'column': 'IS_OWN',
+            'operator': 'eq',
+            'value': 1,
+        },
+        {
+            'name': 'POTREB',
+            'column': 'LOAN_TYPE',
+            'operator': 'is_in',
+            'value': [9],
+        },
+    ],
+    'filter_conjunction': 'MTSB & POTREB', # А может быть и MTSB | POTREB, например
+    'filter_name': 'MTSB_AND_POTREB',
+    'description': 'Максимальная сумма кредита по потребительским кредитам МТС-Банка',
+    'version': 0,
+    
+    'logs': [
+        {
+            'created': '2024-09-19 12:41:15', 
+            'filename': 'cr_loan_batch_001.parquet.gzip',
+            'importance': 123.0324,
+            'importance_cv': [123.0324, 34.235, 532.234],
+            'count': 45269,
+            'n_unique': 1536,
+            'is_nan': 3264,
+            'is_zero': 184,
+            'is_infinite': 0,
+        }
+    ],
+}
+
+# Этап 2 (FEATURE MERGED-CONFIG): Merge фичей по фильтрам и аггрегациям
+
+# FOR SOURCE IN SOURCES:
+
+# ... FOR MERGED-CONFIG-BATCH IN MERGED-CONFIG-BATCHES (SHUFFLE = True):
+
+# ... Этап 3 (FEATURE FILTER-APPLY): Расчет фильтра
+
+# ... Этап 4 (FEATURE COUNT-ACCERT): Проверка кол-ва > 0 и уникальных значений > 1
+
+# ... Этап 5 (FEATURE CALCULATE): Расчет аггрегации
+
+# ... Этап 5.1 (Optional - FEATURE SELECT [IMPORTANCE | SHAP]): Отбор фичи по CV
+
+# ... Этап 6 (FEATURE STORE): Сохранение фичей + статистик
+# ...                         in memory или в файл
