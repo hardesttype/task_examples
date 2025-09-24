@@ -15,7 +15,7 @@
 * `stock_id` - идентификатор склада
 * `stock_price` - конечная стоимость остатков для покупателя
 
-# Solution
+## Solution
 
 ```sql
 with daily_sales_3m as (
@@ -65,7 +65,7 @@ files = [
 ]
 ```
 
-# Solution
+## Solution
 
 ```python
 def sort_key(file_name):
@@ -82,7 +82,7 @@ files = sorted(files, key = lambda x: sort_key(x), reverse = True)
 > Дана функция random(k: int) -> int, которая возвращает случайное целое число из множества {0, 1, 2, ..., k - 1}
 > Необходимо напечатать все элементы из `nums` в случайном порядке, не повторяясь.
 
-# Solution
+## Solution
 
 ```python
 nums = [1, 2, 4, 7, 9]
@@ -106,3 +106,4 @@ while True:
 # Общая сложность O(n)
 
 ```
+
